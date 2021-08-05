@@ -1,5 +1,5 @@
 void main() {
-  //callGen(1991);
+  callGen(1991);
   
   var x = callColor("white");
   print(x);
