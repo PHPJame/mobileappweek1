@@ -21,7 +21,7 @@ class Index extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Image.asset(
                   "asset/image/logo.png",
@@ -29,7 +29,7 @@ class Index extends StatelessWidget {
                   //height: size.height * 0.35,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Text(
                   "Welcome to KMUTNB",
@@ -39,14 +39,17 @@ class Index extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Image(
                   image: NetworkImage(
                       "https://stillvacation.com/codex/2021/02/Booking.jpg"),
-                  width: size.width * 0.9,
+                  width: size.width * 0.8,
                   // height: size.height * 0.9,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -63,7 +66,7 @@ class Index extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
