@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileappweek1/config/constant.dart';
 
 class Index extends StatelessWidget {
   @override
@@ -29,18 +30,18 @@ class Index extends StatelessWidget {
                   //height: size.height * 0.35,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Text(
                   "Welcome to KMUTNB",
                   style: TextStyle(
-                    color: Colors.orange[900],
+                    color: pColor,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Image(
                   image: NetworkImage(
@@ -49,20 +50,21 @@ class Index extends StatelessWidget {
                   // height: size.height * 0.9,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amber[900],
-                    padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
+                    primary: sColor,
+                    padding: EdgeInsets.fromLTRB(100, 10, 120, 10),
                     shape: StadiumBorder(),
                   ),
                   child: Text(
-                    "LOGIN",
+                    "SING IN",
                     style: TextStyle(fontSize: 24),
                   ),
                   onPressed: () {
                     print("Hello World");
+                    Navigator.pushNamed(context, 'Login');
                   },
                 ),
                 SizedBox(
@@ -70,8 +72,8 @@ class Index extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amber[900],
-                    padding: EdgeInsets.fromLTRB(120, 15, 120, 15),
+                    primary: sColor,
+                    padding: EdgeInsets.fromLTRB(100, 15, 120, 15),
                     shape: StadiumBorder(),
                   ),
                   child: Text(
@@ -80,6 +82,7 @@ class Index extends StatelessWidget {
                   ),
                   onPressed: () {
                     print("Hello World");
+                    Navigator.pushNamed(context, 'Register');
                   },
                 ),
               ],
