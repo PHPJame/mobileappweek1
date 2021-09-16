@@ -6,14 +6,17 @@ class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
+
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Login"),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Login"),
+        ),
+        body: Text("Login"),
       ),
-      body: Text("Login"),
     );
   }
 }

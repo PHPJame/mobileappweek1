@@ -22,7 +22,7 @@ class Index extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Image.asset(
                   "asset/image/logo.png",
@@ -78,7 +78,7 @@ class Index extends StatelessWidget {
                   ),
                   child: Text(
                     "SIGN UP",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 22),
                   ),
                   onPressed: () {
                     print("Hello World");

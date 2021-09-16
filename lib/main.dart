@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         'Login': (context) => Login(),
         'Register': (context) => Register(),
       },
-      theme: ThemeData(primaryColor: pColor, secondaryHeaderColor: pColor),
+      theme: ThemeData(primaryColor: sColor, secondaryHeaderColor: sColor),
     );
   }
 }
