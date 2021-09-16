@@ -11,7 +11,8 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   var name, surname, email, password;
   final formkey = GlobalKey<FormState>();
-
+  final Ppassword = TextEditingController();
+  final Cpassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,6 +29,7 @@ class _RegisterState extends State<Register> {
                 txtsurname(),
                 txtemail(),
                 txtpassword(),
+                txtConfirmPassword(),
                 btnsubmit(),
               ],
             ),
@@ -133,11 +135,41 @@ class _RegisterState extends State<Register> {
           icon: Icon(Icons.password_outlined),
           hintText: 'Input your Password',
         ),
+        controller: Ppassword,
         validator: (value) {
           if (value!.isEmpty) {
-            return 'กรุณาใส่ข้อมูลด้วย';
+            return 'กรุณาใส่รหัสผ่านด้วย';
           } else if (value.length < 8) {
             return 'กรุณากรอกข้อมูลมากกว่า 8 ตัว';
+          }
+        },
+        onSaved: (value) {
+          password = value!.trim();
+        },
+      ),
+    );
+  }
+
+  Widget txtConfirmPassword() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(15, 20, 15, 15),
+      child: TextFormField(
+        obscureText: true,
+        style: TextStyle(
+          fontSize: 20,
+          color: sColor,
+        ),
+        decoration: InputDecoration(
+          labelText: 'ConfirmPassword :',
+          icon: Icon(Icons.password_outlined),
+          hintText: 'Input your ConfirmPassword',
+        ),
+        controller: Cpassword,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'ยืนยันรหัสผ่าน';
+          } else if (value != Ppassword.text) {
+            return 'รหัสผ่านไม่ตรงกัน';
           }
         },
         onSaved: (value) {
