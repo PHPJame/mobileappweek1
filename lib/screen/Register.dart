@@ -160,7 +160,7 @@ class _RegisterState extends State<Register> {
           color: sColor,
         ),
         decoration: InputDecoration(
-          labelText: 'ConfirmPassword :',
+          labelText: 'ConfirmPassword ',
           icon: Icon(Icons.password_outlined),
           hintText: 'Input your ConfirmPassword',
         ),
