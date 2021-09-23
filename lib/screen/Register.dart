@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileappweek1/backend/database.dart';
 import 'package:mobileappweek1/config/constant.dart';
 
 class Register extends StatefulWidget {
@@ -9,10 +10,10 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  var name, surname, email, password;
+  var name, surename, email, password;
   final formkey = GlobalKey<FormState>();
-  final Ppassword = TextEditingController();
-  final Cpassword = TextEditingController();
+  //final Ppassword = TextEditingController();
+  //final Cpassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,10 +27,10 @@ class _RegisterState extends State<Register> {
             child: Column(
               children: [
                 txtname(),
-                txtsurname(),
+                txtsurename(),
                 txtemail(),
                 txtpassword(),
-                txtConfirmPassword(),
+                //txtConfirmPassword(),
                 btnsubmit(),
               ],
             ),
@@ -49,7 +50,10 @@ class _RegisterState extends State<Register> {
         ),
         decoration: InputDecoration(
           labelText: 'Name',
-          icon: Icon(Icons.account_circle_outlined),
+          icon: Icon(
+            Icons.account_circle_outlined,
+            color: pColor,
+          ),
           hintText: 'Input your name',
         ),
         validator: (value) {
@@ -66,7 +70,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget txtsurname() {
+  Widget txtsurename() {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 15),
       child: TextFormField(
@@ -76,7 +80,10 @@ class _RegisterState extends State<Register> {
         ),
         decoration: InputDecoration(
           labelText: 'Surname',
-          icon: Icon(Icons.ad_units_outlined),
+          icon: Icon(
+            Icons.ad_units_outlined,
+            color: pColor,
+          ),
           hintText: 'Input your Surname',
         ),
         validator: (value) {
@@ -87,7 +94,7 @@ class _RegisterState extends State<Register> {
           }
         },
         onSaved: (value) {
-          surname = value!.trim();
+          surename = value!.trim();
         },
       ),
     );
@@ -104,7 +111,10 @@ class _RegisterState extends State<Register> {
         ),
         decoration: InputDecoration(
           labelText: 'Email',
-          icon: Icon(Icons.email_outlined),
+          icon: Icon(
+            Icons.email_outlined,
+            color: pColor,
+          ),
           hintText: 'Input your Email',
         ),
         validator: (value) {
@@ -132,10 +142,13 @@ class _RegisterState extends State<Register> {
         ),
         decoration: InputDecoration(
           labelText: 'Password',
-          icon: Icon(Icons.password_outlined),
+          icon: Icon(
+            Icons.lock_clock_outlined,
+            color: pColor,
+          ),
           hintText: 'Input your Password',
         ),
-        controller: Ppassword,
+        //controller: Ppassword,
         validator: (value) {
           if (value!.isEmpty) {
             return 'กรุณาใส่รหัสผ่านด้วย';
@@ -150,7 +163,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget txtConfirmPassword() {
+/*  Widget txtConfirmPassword() {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 15),
       child: TextFormField(
@@ -161,7 +174,7 @@ class _RegisterState extends State<Register> {
         ),
         decoration: InputDecoration(
           labelText: 'ConfirmPassword ',
-          icon: Icon(Icons.password_outlined),
+          icon: Icon(Icons.lock_clock_outlined),
           hintText: 'Input your ConfirmPassword',
         ),
         controller: Cpassword,
@@ -178,6 +191,7 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+*/
 
   Widget btnsubmit() => ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -185,11 +199,12 @@ class _RegisterState extends State<Register> {
         ),
         onPressed: () {
           print("Hello");
+          var local = new DBLocal();
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
-            print(
-                'Name: $name Surname: $surname email: $email password: $password');
+            local.register(name, surename, email, password);
             formkey.currentState!.reset();
+            Navigator.pushNamed(context, 'Login');
           }
         },
         child: Text(
