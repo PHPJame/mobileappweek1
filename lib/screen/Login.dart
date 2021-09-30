@@ -15,9 +15,6 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login"),
-      ),
       body: Form(
         key: formkey,
         child: Container(
