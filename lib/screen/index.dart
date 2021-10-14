@@ -55,7 +55,7 @@ class Index extends StatelessWidget {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: sColor,
+                      primary: pColor,
                       padding: EdgeInsets.fromLTRB(100, 10, 120, 10),
                       shape: StadiumBorder(),
                     ),
@@ -73,7 +73,7 @@ class Index extends StatelessWidget {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: sColor,
+                      primary: pColor,
                       padding: EdgeInsets.fromLTRB(100, 15, 120, 15),
                       shape: StadiumBorder(),
                     ),

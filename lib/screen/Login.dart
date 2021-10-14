@@ -113,7 +113,7 @@ class _LoginState extends State<Login> {
                   'All rights reserved',
                   style: TextStyle(
                     fontSize: 16,
-                    color: sColor,
+                    color: pColor,
                   ),
                 ),
               ],
