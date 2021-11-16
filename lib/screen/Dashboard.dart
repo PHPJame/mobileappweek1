@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobileappweek1/Modal/TCT.dart';
@@ -35,6 +36,11 @@ class _DashboardState extends State<Dashboard> {
     // print(data.price);
   }
 
+  Future<void> Logout() async {
+    await FirebaseAuth.instance.signOut();
+    print("true");
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -68,7 +74,7 @@ class _DashboardState extends State<Dashboard> {
                 leading: Icon(
                   Icons.video_collection_outlined,
                   color: Colors.red,
-                  size: 36,
+                  size: 28,
                 ),
               ),
               ListTile(
@@ -85,7 +91,7 @@ class _DashboardState extends State<Dashboard> {
                 leading: Icon(
                   Icons.image_outlined,
                   color: Colors.green,
-                  size: 36,
+                  size: 28,
                 ),
               ),
               ListTile(
@@ -102,7 +108,42 @@ class _DashboardState extends State<Dashboard> {
                 leading: Icon(
                   Icons.gps_fixed_outlined,
                   color: Colors.blue,
-                  size: 36,
+                  size: 28,
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  print("Menu Store");
+                  Navigator.pushNamed(context, 'Store');
+                },
+                title: Text(
+                  'Store',
+                  style: TextStyle(
+                    fontSize: 24,
+                  ),
+                ),
+                leading: Icon(
+                  Icons.store_mall_directory_outlined,
+                  color: Colors.purple,
+                  size: 28,
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Logout();
+                  Navigator.of(context).pop();
+                  Navigator.pushNamed(context, 'index', arguments: []);
+                },
+                title: Text(
+                  'Logout',
+                  style: TextStyle(
+                    fontSize: 24,
+                  ),
+                ),
+                leading: Icon(
+                  Icons.logout_outlined,
+                  color: Colors.pink,
+                  size: 28,
                 ),
               ),
             ],
